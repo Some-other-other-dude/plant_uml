@@ -1,0 +1,24 @@
+@startuml
+|A|
+start
+if (Setup A) then (no)
+  'space label only for alignment
+else (yes)
+  |B|
+  if (Setup B) then (no)
+  else (yes)
+    |C|
+    if (Execute) then (no)
+    else (yes)
+    | |
+      :Execute;
+      :Process X;
+      :Process Y;
+    endif
+  endif
+  |B|
+  :Cleanup B;
+endif
+|A|
+:Cleanup A;
+@enduml
